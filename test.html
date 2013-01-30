@@ -1,0 +1,30 @@
+
+<!-- JUST CSS FOR THE TEST -->
+<style>
+  .utility-menu {display: none;}
+  .utility-menu.visible { display: block;}
+</style>
+
+
+<!-- <link rel="stylesheet" href="build/build.css"> -->
+<script src="build/build.js"></script>
+
+<li class="help" data-ng-show="feature('engageNav')">
+      <a href="#" class="utility-trigger header-icon" data-i18n-bind="'Help'">Get Help</a>
+      
+      <ul class="utility-menu wide unstyled">
+        <li>
+          Some stuff
+        </li>
+     </ul>
+    </li>
+
+<script>
+  var dropdown = require("dropdown-popover");
+
+  //initialize the dropdown
+  dropdown({
+    dd_trigger: '.help',
+    dd_target: '.wide'
+  });
+</script>

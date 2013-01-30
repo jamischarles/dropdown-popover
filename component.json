@@ -1,0 +1,18 @@
+{
+  "name": "dropdown-popover",
+  "repo": "jamischarles/dropdown-popover",
+  "description": "Dropdown control for simple show/hide layers (no rendering)",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "rvagg/traversty": "*",
+    "component/event": "*"
+    },
+  "development": {
+      "component/assert": "*"
+    },
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
