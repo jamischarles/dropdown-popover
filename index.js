@@ -27,6 +27,9 @@ var DD_TRIGGER_QUERY = ".utility-trigger";
 var DD_TARGET_QUERY = ".utility-menu";
 
 module.exports = function(cfg){
+  //if no cfg object passed in, make blank obj.
+  cfg = cfg || {};
+
   DD_TRIGGER_QUERY = cfg.dd_trigger || DD_TRIGGER_QUERY;
   DD_TARGET_QUERY = cfg.dd_target || DD_TRIGGER_QUERY;
 
