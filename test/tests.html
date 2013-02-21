@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="test_deps/mocha.css" />
+    <!-- FIXME: should really be loaded from the component to say in sync? -->
+    <style type="text/css" media="screen">
+      .utility-menu{display: none;}
+      .utility-menu.visible{display: block;}
+    </style>
+  </head>
+  <body>
+    <div id="mocha"></div>
+
+
+    <!-- FIXME: For now, just put the HTML scaffold here, this should be setup and teared down by the test -->
+    <div id="test_stuff">
+      <ul>  
+        <li class="help" data-ng-show="feature('engageNav')">
+          <a href="#" class="utility-trigger header-icon" data-i18n-bind="'Help'">Get Help</a>
+          
+          <ul class="utility-menu wide unstyled">
+            <li>
+              Some stuff
+            </li>
+         </ul>
+        </li>
+      </ul>
+      
+    </div>    
+
+    <!-- For easier testing -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="test_deps/mocha.js"></script>
+    <!-- X-Browser assertions -->
+    <script src="test_deps/expect.js"></script>
+
+    <script>mocha.setup('bdd')</script>
+    <script src="../build/build.js"></script>
+    <script src="my-tests.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
