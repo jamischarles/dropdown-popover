@@ -34,11 +34,11 @@ describe("test suite", function(){
       // expect($('.wide').hasClass('visible')).to.not.be.ok();
 
       // //simulate click
-      // eventFire($('.help a:first')[0], 'click');
+      eventFire($('.help a:first')[0], 'click');
       
       // //should have visible class now
-      // expect($('.wide').hasClass('visible')).to.be.ok();
-      expect(1).to.be.ok();
+      expect($('.wide').hasClass('visible')).to.be.ok();
+      //expect(1).to.be.ok();
     }); 
 
 

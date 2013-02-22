@@ -50,60 +50,84 @@ module.exports = function(cfg){
   var dd_menus = trav(DD_TARGET_QUERY); //needed to stop evt bubbling
  
   // Q: what about just using evt delegation? Can we d`o that easily natively?
- 
-  //add Click Listeners
-  dd_triggers.each(function(el){
-    events.bind(el, 'click', toggleMenu);
-  })
- 
-  //add listener to ignore click on the dropdown menus
-  dd_menus.each(function(el){
-    events.bind(el, 'click', function(e){
-      e.stopPropagation();
-    });
-  })
+  
+  // //add listener to ignore click on the dropdown menus
+  // dd_menus.each(function(el){
+  //   events.bind(el, 'click', function(e){
+  //     e.stopPropagation();
+  //   });
+  // })
  
   //add universal hide on the body
-  events.bind(document.body, 'click', function(e){
-    hideMenu(_visible_menu);
-  });
+  // events.bind(document.body, 'click', function(e){
+  //   hideMenu(_visible_menu);
+  // });
  
-  //add escape keystroke to close menu
-  events.bind(document, 'keyup', function(e){
-    if (e.keyCode == 27) {
-      hideMenu(_visible_menu);
-    }
+  // //add escape keystroke to close menu
+  // events.bind(document, 'keyup', function(e){
+  //   if (e.keyCode == 27) {
+  //     hideMenu(_visible_menu);
+  //   }
  
-  });
+  // });
  
    
  
   function toggleMenu(e){
-    e.stopPropagation();
-    var trigger = e.target;
+    //e.stopPropagation();
+
+
+    showMenu(zest('#target')[0]);
+   
+
+
+    // var trigger = e.target;
      
-    trav(trigger).siblings(".utility-menu").each(function(el){
-      //if visible, hide, else show
-      if (el.className.match("visible")){
-        hideMenu(el);
-      }else {
-        showMenu(el);
-      }
+    // trav(trigger).siblings(".utility-menu").each(function(el){
+    //   //if visible, hide, else show
+    //   if (el.className.match("visible")){
+    //     hideMenu(el);
+    //   }else {
+    //     showMenu(el);
+    //   }
        
-    });
+    // });
   }
  
   function showMenu(el){
-    hideMenu(_visible_menu);
+    //hideMenu(_visible_menu);
     el.className += " visible"; //TODO: consider adding a component for class toggling
-    _visible_menu = el;
+    //_visible_menu = el;
   }
  
-  function hideMenu(el){
-    if (!el) { return};
-    el.className = el.className.replace("visible", ""); //remove className
-  }
-}
+  // function hideMenu(el){
+  //   if (!el) { return};
+  //   el.className = el.className.replace("visible", ""); //remove className
+  // }
+
+  //add listener to add the 'visible' class to show it
+  
+  //X-Browser
+  var addEvent = function (el, ev, fn) {
+    if (el.addEventListener) {
+        el.addEventListener(ev, fn, false);
+    } else if (el.attachEvent) {
+        el.attachEvent('on' + ev, fn);
+    } else {
+        el['on' + ev] = fn;
+    }
+  };
+
+  var trigger = zest('#trigger')[0];
+  var target = zest('#target')[0];
+
+  //isolate the issue to zest, or something else...
+  events.bind(trigger, 'click', function(){showMenu(target)});
+
+
+} //module.export
+
+
 
 
 
