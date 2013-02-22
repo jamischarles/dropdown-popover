@@ -20,11 +20,15 @@
  * 
  */ 
 var events = require("event");
+var zest = require("zest");
 var trav = require('traversty');
 
 //CONSTANTS
 var DD_TRIGGER_QUERY = ".utility-trigger";
 var DD_TARGET_QUERY = ".utility-menu";
+
+
+trav.setSelectorEngine(zest)
 
 module.exports = function(cfg){
   //if no cfg object passed in, make blank obj.

@@ -6,7 +6,8 @@
   "keywords": [],
   "dependencies": {
     "rvagg/traversty": "*",
-    "component/event": "*"
+    "component/event": "*",
+    "component/zest": "*"
     },
   "development": {
       "component/assert": "*"
